@@ -1,0 +1,35 @@
+{
+  "name": "myback",
+  "version": "1.0.0",
+  "description": "my back boutique",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm start",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "start:dev": "npm run dev",
+    "start:prod": "npm start",
+    "start:prod:win": "npm run start:prod",
+    "start:prod:linux": "npm run start:prod",
+    "start:prod:mac": "npm run start:prod",
+    "start:prod:unix": "npm run start:prod",
+    "start:prod:freebsd": "npm run start:prod"
+  },
+  "keywords": [
+    "SG",
+    "Boutique",
+    "Back"
+  ],
+  "author": "SergeGuea",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "mysql2": "^3.11.2",
+    "sequelize": "^6.37.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
