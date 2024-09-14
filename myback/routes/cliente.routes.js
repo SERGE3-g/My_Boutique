@@ -5,7 +5,7 @@ const router = express.Router();
 const clienteController = require('../controllers/cliente.controller');
 
 // Rotte per gestire i clienti
-router.get('clients/', clienteController.getClienti);
+router.get('clients/', clienteController.getCliente);
 router.get('/clients/:id', clienteController.getClienteById);
 router.post('/api/clients', clienteController.addCliente);
 router.put('/clients/:id', clienteController.updateCliente);
