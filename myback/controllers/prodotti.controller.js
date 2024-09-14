@@ -9,6 +9,19 @@ exports.getProdotti = async (req, res) => {
         res.status(500).json({ error: 'Errore nel recupero dei prodotti' });
     }
 };
+// ottenere un singolo prodotto
+exports.getProdottoById = async (req, res) => {
+    try {
+        const prodotto = await Prodotto.findByPk(req.params.id);
+        if (!prodotto) {
+            return res.status(404).json({ error: 'Prodotto non trovato' });
+        }
+        res.json(prodotto);
+    } catch (error) {
+        res.status(500).json({ error: 'Errore nel recupero del prodotto' });
+    }
+
+}
 
 exports.addProdotto = async (req, res) => {
     try {

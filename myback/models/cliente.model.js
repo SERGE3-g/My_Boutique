@@ -1,4 +1,3 @@
-// models/client.model.js
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/database');
 
@@ -12,7 +11,7 @@ const Client = sequelize.define('Client', {
         type: DataTypes.STRING,
         unique: true,
         validate: {
-            isEmail: true, // Verifica che il campo sia un'email valida
+            isEmail: true,
         },
     },
     telefono: {
@@ -22,8 +21,8 @@ const Client = sequelize.define('Client', {
         type: DataTypes.STRING,
     },
 }, {
-    tableName: 'Clienti', // Specifica il nome della tabella se differisce dal nome del modello
-    timestamps: false, // Se non usi campi createdAt e updatedAt
+    tableName: 'Clienti',
+    timestamps: false,
 });
 module.exports = Client;
 

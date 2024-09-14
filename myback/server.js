@@ -3,6 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const sequelize = require('./config/database');
 const prodottiRoutes = require('./routes/prodotti.routes');
+//const clientRoutesRoutes = require('./routes/cliente.routes');
+const clienteRoutes = require('./routes/cliente.routes');
 const {sync} = require("./config/database");
 
 const app = express();
@@ -10,6 +12,7 @@ app.use(bodyParser.json());
 
 // Rotte
 app.use('/api', prodottiRoutes);
+app.use('/api', clienteRoutes);
 
 // Gestione degli errori
 app.use((err, req, res, next) => {
@@ -36,7 +39,7 @@ syncDB().then(r => {
 );*/
 
 // Connessione al database
-const  PORT = process.env.PORT || 3000;
+const  PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });

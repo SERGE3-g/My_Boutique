@@ -68,9 +68,9 @@ exports.deleteClient = async (req, res) => {
 
  */
 
-const Client = require('../models/client.model');
+const Cliente = require('../models/cliente.model');
 
-// Creare un nuovo cliente
+/*// Creare un nuovo cliente
 exports.createClient = async (req, res) => {
     try {
         const { name, email, phone, address } = req.body;
@@ -139,6 +139,66 @@ exports.deleteClient = async (req, res) => {
             return res.status(404).json({ error: 'Cliente non trovato' });
         }
         await client.destroy();
+        res.json({ message: 'Cliente eliminato con successo' });
+    } catch (error) {
+        res.status(500).json({ error: 'Errore nell\'eliminazione del cliente' });
+    }
+};*/
+
+exports.getCliente = async (req, res) => {
+    try {
+        const clienti = await Cliente.findAll();
+        res.json(clienti);
+    } catch (error) {
+        res.status(500).json({ error: 'Errore nel recupero dei clienti' });
+    }
+};
+
+// Recupera un cliente per ID
+exports.getClienteById = async (req, res) => {
+    try {
+        const cliente = await Cliente.findByPk(req.params.id);
+        if (!cliente) {
+            return res.status(404).json({ error: 'Cliente non trovato' });
+        }
+        res.json(cliente);
+    } catch (error) {
+        res.status(500).json({ error: 'Errore nel recupero del cliente' });
+    }
+};
+
+// Aggiungi un nuovo cliente
+exports.addCliente = async (req, res) => {
+    try {
+        const nuovoCliente = await Cliente.create(req.body);
+        res.status(201).json(nuovoCliente);
+    } catch (error) {
+        res.status(500).json({ error: 'Errore nella creazione del cliente' });
+    }
+};
+
+// Aggiorna un cliente esistente
+exports.updateCliente = async (req, res) => {
+    try {
+        const cliente = await Cliente.findByPk(req.params.id);
+        if (!cliente) {
+            return res.status(404).json({ error: 'Cliente non trovato' });
+        }
+        await cliente.update(req.body);
+        res.json(cliente);
+    } catch (error) {
+        res.status(500).json({ error: 'Errore nell\'aggiornamento del cliente' });
+    }
+};
+
+// Elimina un cliente
+exports.deleteCliente = async (req, res) => {
+    try {
+        const cliente = await Cliente.findByPk(req.params.id);
+        if (!cliente) {
+            return res.status(404).json({ error: 'Cliente non trovato' });
+        }
+        await cliente.destroy();
         res.json({ message: 'Cliente eliminato con successo' });
     } catch (error) {
         res.status(500).json({ error: 'Errore nell\'eliminazione del cliente' });
