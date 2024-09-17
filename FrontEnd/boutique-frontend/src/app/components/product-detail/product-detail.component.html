@@ -1,0 +1,5 @@
+
+<h2>{{ product.nome }}</h2>
+<p>{{ product.descrizione }}</p>
+<p>Prezzo: {{ product.prezzo | currency }}</p>
+<button (click)="addToCart(product)">Aggiungi al Carrello</button>

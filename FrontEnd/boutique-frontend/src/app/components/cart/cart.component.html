@@ -1,0 +1,8 @@
+<h2>Carrello</h2>
+<div *ngFor="let item of cartItems">
+  <h3>{{ item.nome }}</h3>
+  <p>Quantità: {{ item.quantita }}</p>
+  <p>Prezzo: {{ item.prezzo | currency }}</p>
+</div>
+<p>Totale: {{ cartService.getTotal() | currency }}</p>
+<button routerLink="/checkout">Vai al Checkout</button>

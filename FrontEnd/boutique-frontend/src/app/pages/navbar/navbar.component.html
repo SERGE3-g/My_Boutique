@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <!-- Logo o Brand -->
+    <a class="navbar-brand" href="#">Boutique</a>
+
+    <!-- Bottone di toggle per dispositivi mobili -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu principale -->
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <!-- Home Link -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">Home</a>
+        </li>
+
+        <!-- Dropdown Menu -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Prodotti
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink="/products">Tutti i Prodotti</a></li>
+            <li><a class="dropdown-item" routerLink="/products/category1">Categoria 1</a></li>
+            <li><a class="dropdown-item" routerLink="/products/category2">Categoria 2</a></li>
+          </ul>
+        </li>
+
+        <!-- Ordini -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/order-history">Ordini</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Sezione di Destra: Login e Carrello -->
+    <div class="d-flex">
+      <!-- Login -->
+      <a class="btn btn-outline-primary me-2" routerLink="/login">Login</a>
+
+      <!-- Carrello -->
+      <a class="btn btn-outline-success" routerLink="/cart">
+        Carrello <span class="badge bg-secondary">{{ cartItemCount }}</span>
+      </a>
+    </div>
+  </div>
+</nav>
