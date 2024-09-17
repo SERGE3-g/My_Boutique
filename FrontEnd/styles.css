@@ -1,0 +1,33 @@
+body {
+    background-color: #333; /* Sfondo simile alla torta */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    color: #fff;
+}
+
+.cake-code {
+    text-align: left;
+    line-height: 1.5;
+}
+
+.cake-code p {
+    margin: 0;
+}
+
+.cake-code .attr {
+    color: #4f8ef7; /* Colore degli attributi */
+}
+
+.cake-code .value {
+    color: #77b374; /* Colore dei valori */
+}
+
+.date {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2em;
+}
