@@ -3,20 +3,20 @@ import {provideRouter, withComponentInputBinding, withViewTransitions} from '@an
 
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
-import {HTTP_INTERCEPTORS, provideHttpClient, withFetch} from "@angular/common/http";
+import { provideHttpClient, withFetch} from "@angular/common/http";
 import {provideAnimationsAsync} from "@angular/platform-browser/animations/async";
-import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
+//import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 
 // @ts-ignore
 // @ts-ignore
-export let appConfig: ApplicationConfig;
+/*export let appConfig: ApplicationConfig;
 export const jwtOptionsFactory = (jwtHelper: JwtHelperService) => {
   return {
     tokenGetter: () => {
       return localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')!).token : null;
     },
     allowedDomains: ['localhost:8080'],
-    disallowedRoutes: ['http://localhost:8080/auth/login']
+    disallowedRoutes: ['http://localhost:8080/auth/users/login']
   }
 }
 let AuthInterceptor = class AuthInterceptor {
@@ -35,15 +35,12 @@ let AuthInterceptor = class AuthInterceptor {
     }
     return next.handle(req);
   }
-};
-appConfig = {
+};*/
+export const appConfig = {
   providers: [provideZoneChangeDetection({eventCoalescing: true}), provideRouter(routes, withComponentInputBinding(), withViewTransitions()),
     provideClientHydration(),
     provideAnimationsAsync(),
     provideAnimationsAsync(),
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
-    {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
-    JwtHelperService,
     provideHttpClient(
       withFetch()
     )

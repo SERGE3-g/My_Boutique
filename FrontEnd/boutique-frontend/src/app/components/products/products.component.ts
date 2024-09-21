@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {RouterLink} from "@angular/router";
-import {CurrencyPipe, NgForOf} from "@angular/common";
+import {CurrencyPipe, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {ProductService} from "../../services/product.service";
 import {CartService} from "../../services/cart.service";
 
@@ -10,7 +10,9 @@ import {CartService} from "../../services/cart.service";
   imports: [
     RouterLink,
     CurrencyPipe,
-    NgForOf
+    NgForOf,
+    NgIf,
+    NgOptimizedImage
   ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'

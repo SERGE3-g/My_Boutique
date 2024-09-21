@@ -6,6 +6,7 @@ const prodottiRoutes = require('./routes/prodotti.routes');
 //const clientRoutesRoutes = require('./routes/cliente.routes');
 const clienteRoutes = require('./routes/cliente.routes');
 const {sync} = require("./config/database");
+const authRoutes = require('./routes/auth');
 
 const app = express();
 app.use(bodyParser.json());
@@ -13,6 +14,7 @@ app.use(bodyParser.json());
 // Rotte
 app.use('/api', prodottiRoutes);
 app.use('/api', clienteRoutes);
+app.use('/auth',authRoutes);
 
 // Gestione degli errori
 app.use((err, req, res, next) => {

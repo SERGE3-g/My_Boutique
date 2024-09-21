@@ -1,7 +1,16 @@
 <h2>Elenco Prodotti</h2>
-<div *ngFor="let product of products">
-  <h3>{{ product.nome }}</h3>
-  <p>{{ product.descrizione }}</p>
-  <p>Prezzo: {{ product.prezzo | currency }}</p>
-  <a [routerLink]="['/products', product.id]">Dettagli</a>
+<div class="product-container">
+  <div *ngFor="let product of products">
+    <img ngSrc="product.immagine" alt="{{ product.nome }}" />
+    <h3>{{ product.nome }}</h3>
+    <p>{{ product.descrizione }}</p>
+    <p>Prezzo: {{ product.prezzo | currency }}</p>
+    <a [routerLink]="['/product-detail', product.id]">Dettagli</a>
+  </div>
 </div>
+
+
+
+<ng-container *ngIf="products.length === 0">
+  <p>Non ci sono prodotti.</p>
+</ng-container>

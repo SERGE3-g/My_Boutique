@@ -19,17 +19,11 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     // Aggiorna il conteggio del carrello
-    // @ts-ignore
-    this.cartService.getCartItems().then((items: string | any[]) => {
-      this.cartItemCount = items.length;
-    });
+    this.cartItemCount = this.cartService.getCartItems().length;
   }
 
-  isAuthenticated(): boolean {
-    return this.authService.isAuthenticated();
+  isLoggedIn(): boolean {
+    return this.authService.isLoggedIn();
   }
 
-  logout(): void {
-    this.authService.logout();
-  }
 }
